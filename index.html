@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій перший проект</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+ <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/uk.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Головна</a></li>
+                <li><a href="#trips-grid">Подорожі</a></li>
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+            <div class="hero">
+                <div class="hero-bg"></div>
+                <div class="hero-overlay"></div>
+ 
+                <div class="hero-content">
+                <span class="hero-label">✈️ Найкращі маршрути Європою</span>
+                <h1 class="hero-title">
+                Подорожуйте<br>
+                Відкривайте<br>
+                <span>Надихайтесь</span>
+                </h1>
+                <p class="hero-sub">
+                Продумані маршрути по Європі — від тихих озер до шумних вечірок.
+                Знайдіть подорож, яка підходить саме вам.
+                </p>
+                <div class="hero-btns">
+                <button class="hero-btn-primary" onclick="document.location='#trips'">Переглянути маршрути</button>
+                <button class="hero-btn-secondary" onclick="document.location='#about'">Дізнатись більше</button>
+                </div>
+            </div>
+ 
+        <div class="hero-stats-block">
+            <div class="stat">
+            <span class="stat-num">6</span>
+            <span class="stat-label">маршрутів</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num">12+</span>
+            <span class="stat-label">міст</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">задоволення</span>
+        </div>
+        </div>
+ 
+        <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+         scroll
+        </div>
+        </div>
+        </section>
+
+    <main>
+        <section id="trips">
+  <div class="trips-layout">
+ 
+    <!-- Бічна панель -->
+    <aside class="trips-sidebar">
+ 
+      <div class="sb-block">
+        <div class="sb-title">Вайб</div>
+        <button class="filter-btn on" data-vibe="all">Всі подорожі</button>
+        <button class="filter-btn" data-vibe="море">Море</button>
+        <button class="filter-btn" data-vibe="місто">Місто</button>
+        <button class="filter-btn" data-vibe="природа">Природа</button>
+        <button class="filter-btn" data-vibe="тусовки">Тусовки</button>
+      </div>
+ 
+      <div class="sb-block">
+        <div class="sb-title">Країна</div>
+        <div class="tags">
+          <span class="tag" data-country="Італія">Італія</span>
+          <span class="tag" data-country="Іспанія">Іспанія</span>
+          <span class="tag" data-country="Франція">Франція</span>
+          <span class="tag" data-country="Швейцарія">Швейцарія</span>
+          <span class="tag" data-country="Нідерланди">Нідерланди</span>
+          <span class="tag" data-country="Німеччина">Німеччина</span>
+        </div>
+      </div>
+ 
+    <div class="sb-block">
+        <div class="sb-title">Спосіб поїздки</div>
+
+        <div class="transport-btns">
+            <button class="transport-btn active" data-transport="bus">🚌 Автобус</button>
+            <button class="transport-btn" data-transport="plane">✈️ Літак</button>
+            <button class="transport-btn" data-transport="train">🚂 Поїзд</button>
+        </div>
+
+    <div class="transport-form">
+         <input type="text" id="transportFrom" placeholder="Звідки" class="transport-input">
+         <div class="transport-arrow">↓</div>
+         <input type="text" id="transportTo" placeholder="Куди" class="transport-input">
+         <button class="transport-search" onclick="searchTransport()">Шукати →</button>
+         <p class="transport-hint" id="transportHint"></p>
+         </div>
+    </div>
+ 
+    </aside>
+ 
+    <!-- Контент -->
+    <div class="trips-content">
+      <div class="trips-content-header">
+        <h2>Туристичні маршрути</h2>
+        <span class="trips-count" id="tripsCount">6 подорожей</span>
+      </div>
+ 
+      <div class="trips-grid" id="tripsGrid">
+ 
+        <div class="trip-card" data-vibe="море" data-country="Італія">
+          <img src="/foto/Gemini_Generated_Image_no6czano6czano6c.png" alt="Рим">
+          <p class="card-title">Рим → Неаполь → Амальфі</p>
+          <p class="card-desc">Класика, але дуже атмосферна. Вічне місто, піца і море.</p>
+          <span class="card-vibe">море · їжа · естетика</span>
+          <a href="roma.html" class="card-btn">Вибрати подорож</a>
+        </div>
+ 
+        <div class="trip-card" data-vibe="природа" data-country="Швейцарія,Італія">
+          <img src="foto/milan.png" alt="Мілан">
+          <p class="card-title">Мілан → Комо → Лугано</p>
+          <p class="card-desc">Спокійний та дорогий вайб. Озеро, стиль і швейцарський шик.</p>
+          <span class="card-vibe">чіл · природа · фото</span>
+          <a href="milan.html" class="card-btn">Вибрати подорож</a>
+        </div>
+ 
+        <div class="trip-card" data-vibe="тусовки" data-country="Іспанія">
+          <img src="foto/Barcelona.png" alt="Барселона">
+          <p class="card-title">Барселона → Валенсія → Ібіца</p>
+          <p class="card-desc">Іспанський драйв. Архітектура, море і найкращі вечірки.</p>
+          <span class="card-vibe">тус · море · драйв</span>
+          <a href="barcelona.html" class="card-btn">Вибрати подорож</a>
+        </div>
+ 
+        <div class="trip-card" data-vibe="море" data-country="Франція">
+          <img src="foto/France.png" alt="Париж">
+          <p class="card-title">Париж → Луара → Бордо → Ніцца</p>
+          <p class="card-desc">Романтика, вино та краса.</p>
+          <span class="card-vibe">романтика · вино · шарм</span>
+          <a href="france.html" class="card-btn">Вибрати подорож</a>
+        </div>
+ 
+        <div class="trip-card" data-vibe="місто" data-country="Нідерланди">
+          <img src="foto/Netherlands.png" alt="Амстердам">
+          <p class="card-title">Амстердам → Роттердам → Брюгге → Брюссель</p>
+          <p class="card-desc">Канали, архітектура і бельгійський шоколад.</p>
+          <span class="card-vibe">місто · канали · архітектура</span>
+          <a href="netherlands.html" class="card-btn">Вибрати подорож</a>
+        </div>
+ 
+        <div class="trip-card" data-vibe="природа" data-country="Німеччина">
+          <img src="foto/Germany.png" alt="Берлін">
+          <p class="card-title">Берлін → Дрезден → Мюнхен → Альпи</p>
+          <p class="card-desc">Від столиці до засніжених вершин Альп.</p>
+          <span class="card-vibe">міста · природа · Альпи</span>
+          <a href="germany.html" class="card-btn">Вибрати подорож</a>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <h2>🏨 Знайти готель</h2>
+  <p class="booking-sub">Оберіть місто, дати та бюджет — ми відкриємо Booking.com з готовими результатами</p>
+
+  <div class="booking-form">
+    <select id="bookingCity">
+      <option value="Rome">🏛️ Рим</option>
+      <option value="Naples">🍕 Неаполь</option>
+      <option value="Amalfi">🌊 Амальфі</option>
+      <option value="Milan">💎 Мілан</option>
+      <option value="Como">🌿 Комо</option>
+      <option value="Lugano">🏔️ Лугано</option>
+      <option value="Barcelona">🎨 Барселона</option>
+      <option value="Valencia">🥘 Валенсія</option>
+      <option value="Ibiza">💃 Ібіца</option>
+      <option value="Paris">🗼 Париж</option>
+      <option value="Nice">☀️ Ніцца</option>
+      <option value="Amsterdam">🚲 Амстердам</option>
+      <option value="Berlin">🏰 Берлін</option>
+      <option value="Munich">🍺 Мюнхен</option>
+    </select>
+
+    <input type="text" id="bookingCheckin" placeholder="📅 Заїзд" readonly>
+    <input type="text" id="bookingCheckout" placeholder="📅 Виїзд" readonly>
+
+    <select id="bookingBudget">
+      <option value="">Будь-який бюджет</option>
+      <option value="0-50">до €50</option>
+      <option value="0-100">до €100</option>
+      <option value="0-150">до €150</option>
+      <option value="0-200">до €200</option>
+      <option value="200-99999">€200+</option>
+    </select>
+
+    <button class="booking-search-btn" onclick="searchHotels()">Шукати →</button>
+  </div>
+
+  <div class="booking-cities">
+    <div class="booking-cities-label">Популярні напрямки</div>
+    <div class="booking-cities-list">
+      <a class="city-chip" onclick="quickSearch('Rome')">🏛️ Рим</a>
+      <a class="city-chip" onclick="quickSearch('Barcelona')">🎨 Барселона</a>
+      <a class="city-chip" onclick="quickSearch('Paris')">🗼 Париж</a>
+      <a class="city-chip" onclick="quickSearch('Milan')">💎 Мілан</a>
+      <a class="city-chip" onclick="quickSearch('Amsterdam')">🚲 Амстердам</a>
+      <a class="city-chip" onclick="quickSearch('Nice')">☀️ Ніцца</a>
+    </div>
+  </div>
+</section>
+
+        <section id="slide">
+            <div class="slider-header">
+                <h2>Наші подорожі</h2>
+                    <div class="slider-arrows">
+                    <button class="slider-arrow" id="sliderPrev" aria-label="Назад">&#8592;</button>
+                    <button class="slider-arrow" id="sliderNext" aria-label="Вперед">&#8594;</button>
+                    </div>
+            </div>
+ 
+            <div class="slider">
+               <div class="slider-track auto-scroll" id="sliderTrack"></div>
+            </div>
+ 
+            <div class="slider-dots" id="sliderDots"></div>
+               <p class="slider-hint">Наведи щоб зупинити · або керуй стрілками</p>
+        </section>
+ 
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal" id="modal">
+                <button class="modal-close" onclick="closeModalBtn()">✕</button>
+                <span class="modal-emoji" id="modalEmoji"></span>
+                <h3 id="modalTitle"></h3>
+                <span class="modal-vibe" id="modalVibe"></span>
+                <p class="modal-body" id="modalBody"></p>
+                <div class="modal-links" id="modalLinks"></div>
+                <a class="modal-action" id="modalAction" href="#">Вибрати цю подорож →</a>
+            </div>
+        </div>
+
+        <section id="about">
+            <h2>Про нас</h2>
+            <p>Ми - команда професіоналів, яка прагне надати найкращі подорожі нашим клієнтам.</p>
+            <p>Наша мета - забезпечити якість та задоволення кожного клієнта.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Контакти</h2>
+            <form action="#">
+                <input type="text" placeholder="Ваше ім'я" required>
+                <input type="email" placeholder="Ваш email" required>
+                <textarea placeholder="Ваше повідомлення" required></textarea>
+                <button type="submit">Надіслати</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

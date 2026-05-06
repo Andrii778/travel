@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Берлін → Дрезден → Мюнхен → Альпи</title>
+    <link rel="stylesheet" href="trips-card.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/uk.js"></script>
+    <script>
+      var tripCities = [
+        { emoji: '🏰', name: 'Берлін',  booking: 'Berlin', img: 'foto/berlin.webp',  desc: 'Історія, мистецтво і найяскравіша нічна сцена Європи.', priceFrom: '€55' },
+        { emoji: '🎭', name: 'Дрезден', booking: 'Dresden', img: 'foto/dresden.webp',  desc: 'Флоренція на Ельбі — бароко і неймовірна краса.', priceFrom: '€45' },
+        { emoji: '🍺', name: 'Мюнхен',  booking: 'Munich', img: 'foto/munich.jpg',   desc: 'Пиво, BMW і ворота до Баварських Альп.', priceFrom: '€60' },
+        { emoji: '⛰️', name: 'Альпи',   booking: 'Garmisch-Partenkirchen', img: 'foto/alps.webp', desc: 'Найвища вершина Германії та казкові пейзажі.', priceFrom: '€70' },
+      ];
+    </script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#about">Про нас</a></li>
+                <li><a href="index.html#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+<div class="trips-layout">
+ 
+        <!-- Бічна панель -->
+        <aside class="trips-sidebar">
+ 
+          <div class="sb-block">
+            <div class="sb-title">Вайб</div>
+            <button class="filter-btn on" data-vibe="all">Всі подорожі</button>
+            <button class="filter-btn" data-vibe="море">Море</button>
+            <button class="filter-btn" data-vibe="місто">Місто</button>
+            <button class="filter-btn" data-vibe="природа">Природа</button>
+            <button class="filter-btn" data-vibe="тусовки">Тусовки</button>
+          </div>
+ 
+          <div class="sb-block">
+            <div class="sb-title">Країна</div>
+            <div class="tags">
+              <span class="tag" data-country="Італія">Італія</span>
+              <span class="tag" data-country="Іспанія">Іспанія</span>
+              <span class="tag" data-country="Франція">Франція</span>
+              <span class="tag" data-country="Швейцарія">Швейцарія</span>
+              <span class="tag" data-country="Нідерланди">Нідерланди</span>
+              <span class="tag" data-country="Німеччина">Німеччина</span>
+            </div>
+          </div>
+ 
+          <div class="sb-block">
+            <div class="sb-title">Спосіб поїздки</div>
+            <div class="transport-btns">
+              <button class="transport-btn active" data-transport="bus">🚌 Автобус</button>
+              <button class="transport-btn" data-transport="plane">✈️ Літак</button>
+              <button class="transport-btn" data-transport="train">🚂 Поїзд</button>
+            </div>
+            <div class="transport-form">
+              <input type="text" id="transportFrom" placeholder="Звідки" class="transport-input">
+              <div class="transport-arrow">↓</div>
+              <input type="text" id="transportTo" placeholder="Куди" class="transport-input">
+              <button class="transport-search" onclick="searchTransport()">Шукати</button>
+              <p class="transport-hint" id="transportHint"></p>
+            </div>
+          </div>
+ 
+        </aside>
+
+        <div class="trips-content-page">
+    
+        <section id="trip">
+            <h1>Берлін → Дрезден → Мюнхен → Альпи</h1>
+            <h2>Від столиці до засніжених вершин Альп</h2>
+
+            <div id="berlin">
+                <h3>📍 Berlin — місто контрастів і свободи</h3>
+                <img src="foto/berlin.webp" alt="Берлін">
+                <p>Берлін — це місто, де історія відчувається на кожному кроці. Залишки
+                Берлінського муру, Бранденбурзькі ворота і меморіал Голокосту нагадують
+                про складне минуле. Але сучасний Берлін — це також світова столиця
+                вуличного мистецтва, дизайну та нічного життя.
+                Музейний острів, ринки та нескінченна кількість кафе роблять місто
+                ідеальним для дослідження.</p>
+
+                <p> Вайб: історія + мистецтво + свобода</p>
+            </div>
+
+            <div id="dresden">
+                <h3>📍 Dresden — Флоренція на Ельбі</h3>
+                <img src="foto/dresden.webp" alt="Дрезден">
+                <p>Дрезден — одне з найкрасивіших міст Германії, яке після майже повного
+                знищення у Другій світовій війні було відновлено у всій своїй бароковій красі.
+                Frauenkirche, Zwinger та Дрезденська картинна галерея з Сікстинською Мадонною
+                Рафаеля зберігають скарби світового мистецтва. Місто на берегах Ельби
+                вражає своєю елегантністю.</p>
+                <p>Вайб: бароко + мистецтво + елегантність</p>
+            </div>
+
+            <div id="munich">
+                <h3>📍 Munich — серце Баварії</h3>
+                <img src="foto/munich.jpg" alt="Мюнхен">
+                <p>Мюнхен — столиця Баварії і місто, де традиції поважають так само, як і прогрес.
+                Marienplatz з годинниковою вежею Glockenspiel, пивний сад Englischer Garten
+                і знаменитий Октоберфест. Тут знаходяться штаб-квартира BMW та чудові музеї.
+                Мюнхен — ідеальна база для поїздок в Альпи та замок Нойшванштайн.</p>
+
+                <p>Вайб: традиції + пиво + баварський дух</p>
+            </div>
+
+            <div id="alps">
+                <h3>📍 Баварські Альпи — природа, яка вражає</h3>
+                <img src="foto/alps.webp" alt="Альпи">
+                <p>Баварські Альпи — це один із найкрасивіших природних регіонів Європи.
+                Казковий замок Neuschwanstein, що надихнув Діснея на створення замку Попелюшки.
+                Озеро Königssee з кришталево чистою водою та гора Zugspitze — найвища точка Німеччини.
+                Взимку — найкращі гірськолижні курорти, влітку — неймовірні хайкінг-маршрути.</p>
+
+                <p>Вайб: природа + пригоди + казка</p>
+            </div>
+        </section>
+
+        <section id="more-details">
+            <h2>✨ Чому варто обрати цей маршрут</h2>
+            <h3>Ця подорож — Германія від А до Я:</h3>
+            <ul>
+                <li><strong>Берлін</strong> — динамічна столиця з багатою історією і яскравою культурою.</li>
+                <li><strong>Дрезден</strong> — барокова краса і найкращі художні колекції.</li>
+                <li><strong>Мюнхен</strong> — баварські традиції, пиво і ворота до Альп.</li>
+                <li><strong>Альпи</strong> — казкові пейзажі, замки і незабутня природа.</li>
+            </ul>
+        </section>
+
+        <section id="links">
+            <h2>Корисні посилання для планування подорожі</h2>
+            <ul>
+                <li><a href="https://www.visitberlin.de/en" target="_blank">🏰 Берлін — visitberlin.de</a></li>
+                <li><a href="https://www.dresden.de/en/" target="_blank">🎭 Дрезден — dresden.de</a></li>
+                <li><a href="https://www.muenchen.de/en" target="_blank">🍺 Мюнхен — muenchen.de</a></li>
+                <li><a href="https://www.gapa.de/en/" target="_blank">⛰️ Баварські Альпи — gapa.de</a></li>
+            </ul>
+        </section>
+
+        <section id="booking-trip">
+            <h2>🏨 Забронювати готель</h2>
+            <p class="booking-sub">Вибери дати — і ми знайдемо кращі варіанти в кожному місті маршруту</p>
+            <div class="booking-trip-filters">
+                <input type="text" id="tripCheckin" placeholder="📅 Заїзд" readonly>
+                <input type="text" id="tripCheckout" placeholder="📅 Виїзд" readonly>
+                <select id="tripBudget">
+                    <option value="">Будь-який бюджет</option>
+                    <option value="0-50">до €50</option>
+                    <option value="0-100">до €100</option>
+                    <option value="0-150">до €150</option>
+                    <option value="0-200">до €200</option>
+                    <option value="200-99999">€200+</option>
+                </select>
+                <button class="booking-search-btn" onclick="searchAllCities()">Шукати →</button>
+            </div>
+            <div class="booking-cities-grid" id="tripCitiesGrid"></div>
+        </section>
+
+        <section id="slide">
+            <div class="slider-header">
+                <h2>Наші подорожі</h2>
+                <div class="slider-arrows">
+                    <button class="slider-arrow" id="sliderPrev" aria-label="Назад">&#8592;</button>
+                    <button class="slider-arrow" id="sliderNext" aria-label="Вперед">&#8594;</button>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider-track auto-scroll" id="sliderTrack"></div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+            <p class="slider-hint">Наведи щоб зупинити · або керуй стрілками</p>
+        </section>
+
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal" id="modal">
+                <button class="modal-close" onclick="closeModalBtn()">✕</button>
+                <span class="modal-emoji" id="modalEmoji"></span>
+                <h3 id="modalTitle"></h3>
+                <span class="modal-vibe" id="modalVibe"></span>
+                <p class="modal-body" id="modalBody"></p>
+                <div class="modal-links" id="modalLinks"></div>
+                <a class="modal-action" id="modalAction" href="#">Вибрати цю подорож →</a>
+            </div>
+        </div>
+        </div>
+</div>
+    </main>
+</body>
+</html>

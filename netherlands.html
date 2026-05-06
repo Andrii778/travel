@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Амстердам → Роттердам → Брюгге → Брюссель</title>
+    <link rel="stylesheet" href="trips-card.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/uk.js"></script>
+    <script>
+      var tripCities = [
+        { emoji: '🚲', name: 'Амстердам',  booking: 'Amsterdam', img: 'foto/amsterdam.jpg', desc: 'Канали, музеї та велосипеди — місто, яке вражає.', priceFrom: '€65' },
+        { emoji: '🏗️', name: 'Роттердам',  booking: 'Rotterdam', img: 'foto/rotterdam.jpg', desc: 'Найсучасніша архітектура Нідерландів.', priceFrom: '€55' },
+        { emoji: '🍺', name: 'Брюгге',     booking: 'Bruges',    img: 'foto/bruges.jpg', desc: 'Середньовічне місто-казка з каналами і шоколадом.', priceFrom: '€60' },
+        { emoji: '🧇', name: 'Брюссель',   booking: 'Brussels',  img: 'foto/brussels.jpg', desc: 'Столиця Європи, вафлі та найкраще пиво.', priceFrom: '€60' },
+      ];
+    </script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#about">Про нас</a></li>
+                <li><a href="index.html#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+<div class="trips-layout">
+ 
+        <!-- Бічна панель -->
+        <aside class="trips-sidebar">
+ 
+          <div class="sb-block">
+            <div class="sb-title">Вайб</div>
+            <button class="filter-btn on" data-vibe="all">Всі подорожі</button>
+            <button class="filter-btn" data-vibe="море">Море</button>
+            <button class="filter-btn" data-vibe="місто">Місто</button>
+            <button class="filter-btn" data-vibe="природа">Природа</button>
+            <button class="filter-btn" data-vibe="тусовки">Тусовки</button>
+          </div>
+ 
+          <div class="sb-block">
+            <div class="sb-title">Країна</div>
+            <div class="tags">
+              <span class="tag" data-country="Італія">Італія</span>
+              <span class="tag" data-country="Іспанія">Іспанія</span>
+              <span class="tag" data-country="Франція">Франція</span>
+              <span class="tag" data-country="Швейцарія">Швейцарія</span>
+              <span class="tag" data-country="Нідерланди">Нідерланди</span>
+              <span class="tag" data-country="Німеччина">Німеччина</span>
+            </div>
+          </div>
+ 
+          <div class="sb-block">
+            <div class="sb-title">Спосіб поїздки</div>
+            <div class="transport-btns">
+              <button class="transport-btn active" data-transport="bus">🚌 Автобус</button>
+              <button class="transport-btn" data-transport="plane">✈️ Літак</button>
+              <button class="transport-btn" data-transport="train">🚂 Поїзд</button>
+            </div>
+            <div class="transport-form">
+              <input type="text" id="transportFrom" placeholder="Звідки" class="transport-input">
+              <div class="transport-arrow">↓</div>
+              <input type="text" id="transportTo" placeholder="Куди" class="transport-input">
+              <button class="transport-search" onclick="searchTransport()">Шукати</button>
+              <p class="transport-hint" id="transportHint"></p>
+            </div>
+          </div>
+ 
+        </aside>
+
+        <div class="trips-content-page">
+
+        <section id="trip">
+            <h1>Амстердам → Роттердам → Брюгге → Брюссель</h1>
+            <h2>Канали, архітектура і бельгійський шоколад</h2>
+
+            <div id="amsterdam">
+                <h3>📍 Amsterdam — місто каналів і свободи</h3>
+                <img src="foto/amsterdam.jpg" alt="Амстердам">
+                <p>Амстердам — одне з найунікальніших міст світу. Понад 100 каналів, тисячі велосипедів
+                і неймовірна кількість музеїв — Rijksmuseum, Van Gogh Museum та Anne Frank House.
+                Квартал Йордаан з його затишними кафе і незалежними магазинами є одним із
+                найгарніших районів Європи. Місто толерантності, культури і живого духу.</p>
+
+                <p>Вайб: культура + канали + свобода</p>
+            </div>
+
+            <div id="rotterdam">
+                <h3>📍 Rotterdam — місто майбутнього</h3>
+                <img src="foto/rotterdam.jpg" alt="Роттердам">
+                <p>Роттердам — повна протилежність старому Амстердаму. Після Другої світової
+                війни місто відбудували заново і перетворили на лабораторію сучасної архітектури.
+                Кубічні будинки Cube Houses, ринок Markthal та найбільший порт Європи.
+                Це місто для тих, хто любить сучасний дизайн і нестандартні рішення.</p>
+
+                 <p>Вайб: архітектура + модернізм + енергія</p>
+            </div>
+
+            <div id="bruges">
+                <h3>📍 Bruges — середньовічна казка</h3>
+                <img src="foto/bruges.jpg" alt="Брюгге">
+                <p>Брюгге — один із найкрасивіших середньовічних міст Європи. Вузькі вуличками,
+                кам'яні мости через канали і готична архітектура роблять його схожим на декорації
+                до казки. Тут виробляють найкращий бельгійський шоколад і пиво.
+                Прогулянка човном по каналах — must-do кожного відвідувача.</p>
+
+                 <p>Вайб: середньовіччя + шоколад + романтика</p>
+            </div>
+
+            <div id="brussels">
+                <h3>📍 Brussels — серце Європи</h3>
+                <img src="foto/brussel.jpg" alt="Брюссель">
+                <p>Брюссель — столиця Бельгії та неофіційна столиця Євросоюзу. Grand Place —
+                одна з найкрасивіших площ світу, внесена до списку ЮНЕСКО.
+                Манекен Піс, вафлі з шоколадом, бельгійське пиво та суперечливий Атоміум.
+                Місто поєднує елегантність, гумор і гастрономічний рай.</p>
+                
+                <p>Вайб: Європа + гастрономія + культура</p>
+            </div>
+        </section>
+
+        <section id="more-details">
+            <h2>✨ Чому варто обрати цей маршрут</h2>
+            <h3>Ця подорож — найкраще з Нідерландів і Бельгії:</h3>
+            <ul>
+                <li><strong>Амстердам</strong> — канали, велосипеди і найкращі музеї Європи.</li>
+                <li><strong>Роттердам</strong> — сучасна архітектура і найбільший порт континенту.</li>
+                <li><strong>Брюгге</strong> — середньовічне місто-казка з шоколадом і пивом.</li>
+                <li><strong>Брюссель</strong> — серце Європи з Grand Place і бельгійськими вафлями.</li>
+            </ul>
+        </section>
+
+        <section id="links">
+            <h2>Корисні посилання для планування подорожі</h2>
+            <ul>
+                <li><a href="https://www.iamsterdam.com/en" target="_blank">🚲 Амстердам — iamsterdam.com</a></li>
+                <li><a href="https://www.rotterdam.info/en/" target="_blank">🏗️ Роттердам — rotterdam.info</a></li>
+                <li><a href="https://www.visitbruges.be/en" target="_blank">🍺 Брюгге — visitbruges.be</a></li>
+                <li><a href="https://visit.brussels/en" target="_blank">🧇 Брюссель — visit.brussels</a></li>
+            </ul>
+        </section>
+
+        <section id="booking-trip">
+            <h2>🏨 Забронювати готель</h2>
+            <p class="booking-sub">Вибери дати — і ми знайдемо кращі варіанти в кожному місті маршруту</p>
+            <div class="booking-trip-filters">
+                <input type="text" id="tripCheckin" placeholder="📅 Заїзд" readonly>
+                <input type="text" id="tripCheckout" placeholder="📅 Виїзд" readonly>
+                <select id="tripBudget">
+                    <option value="">Будь-який бюджет</option>
+                    <option value="0-50">до €50</option>
+                    <option value="0-100">до €100</option>
+                    <option value="0-150">до €150</option>
+                    <option value="0-200">до €200</option>
+                    <option value="200-99999">€200+</option>
+                </select>
+                <button class="booking-search-btn" onclick="searchAllCities()">Шукати →</button>
+            </div>
+            <div class="booking-cities-grid" id="tripCitiesGrid"></div>
+        </section>
+
+        <section id="slide">
+            <div class="slider-header">
+                <h2>Наші подорожі</h2>
+                <div class="slider-arrows">
+                    <button class="slider-arrow" id="sliderPrev" aria-label="Назад">&#8592;</button>
+                    <button class="slider-arrow" id="sliderNext" aria-label="Вперед">&#8594;</button>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider-track auto-scroll" id="sliderTrack"></div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+            <p class="slider-hint">Наведи щоб зупинити · або керуй стрілками</p>
+        </section>
+
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal" id="modal">
+                <button class="modal-close" onclick="closeModalBtn()">✕</button>
+                <span class="modal-emoji" id="modalEmoji"></span>
+                <h3 id="modalTitle"></h3>
+                <span class="modal-vibe" id="modalVibe"></span>
+                <p class="modal-body" id="modalBody"></p>
+                <div class="modal-links" id="modalLinks"></div>
+                <a class="modal-action" id="modalAction" href="#">Вибрати цю подорож →</a>
+            </div>
+        </div>
+        </div>
+</div>
+    </main>
+</body>
+</html>

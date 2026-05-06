@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Барселона → Валенсія → Ібіца</title>
+    <link rel="stylesheet" href="trips-card.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/uk.js"></script>
+    <script>
+      var tripCities = [
+        { emoji: '🎨', name: 'Барселона', booking: 'Barcelona', img: 'foto/Barcelona_1920.jpg', desc: 'Ґауді, Ла Рамбла та найкраща тапас у житті.', priceFrom: '€50' },
+        { emoji: '🥘', name: 'Валенсія',  booking: 'Valencia',  img: 'foto/Valencia.jpg', desc: 'Батьківщина паельї та Місто Мистецтв і Наук.', priceFrom: '€40' },
+        { emoji: '💃', name: 'Ібіца',     booking: 'Ibiza',     img: 'foto/Ibiza_01.jpg',     desc: 'Найкращі вечірки та схід сонця на березі моря.', priceFrom: '€65' },
+      ];
+    </script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#about">Про нас</a></li>
+                <li><a href="index.html#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+<div class="trips-layout">
+ 
+        <!-- Бічна панель -->
+        <aside class="trips-sidebar">
+ 
+          <div class="sb-block">
+            <div class="sb-title">Вайб</div>
+            <button class="filter-btn on" data-vibe="all">Всі подорожі</button>
+            <button class="filter-btn" data-vibe="море">Море</button>
+            <button class="filter-btn" data-vibe="місто">Місто</button>
+            <button class="filter-btn" data-vibe="природа">Природа</button>
+            <button class="filter-btn" data-vibe="тусовки">Тусовки</button>
+          </div>
+ 
+          <div class="sb-block">
+            <div class="sb-title">Країна</div>
+            <div class="tags">
+              <span class="tag" data-country="Італія">Італія</span>
+              <span class="tag" data-country="Іспанія">Іспанія</span>
+              <span class="tag" data-country="Франція">Франція</span>
+              <span class="tag" data-country="Швейцарія">Швейцарія</span>
+              <span class="tag" data-country="Нідерланди">Нідерланди</span>
+              <span class="tag" data-country="Німеччина">Німеччина</span>
+            </div>
+          </div>
+ 
+          <div class="sb-block">
+            <div class="sb-title">Спосіб поїздки</div>
+            <div class="transport-btns">
+              <button class="transport-btn active" data-transport="bus">🚌 Автобус</button>
+              <button class="transport-btn" data-transport="plane">✈️ Літак</button>
+              <button class="transport-btn" data-transport="train">🚂 Поїзд</button>
+            </div>
+            <div class="transport-form">
+              <input type="text" id="transportFrom" placeholder="Звідки" class="transport-input">
+              <div class="transport-arrow">↓</div>
+              <input type="text" id="transportTo" placeholder="Куди" class="transport-input">
+              <button class="transport-search" onclick="searchTransport()">Шукати</button>
+              <p class="transport-hint" id="transportHint"></p>
+            </div>
+          </div>
+ 
+        </aside>
+
+        <div class="trips-content-page">
+
+        <section id="trip">
+            <h1>Барселона → Валенсія → Ібіца</h1>
+            <h2>Іспанський драйв, архітектура і море</h2>
+
+            <div id="barcelona">
+                <h3>📍 Barcelona — архітектура, море і тапас</h3>
+                <img src="foto/Barcelona_1920.jpg" alt="Барселона">
+                <p>Барселона — одне з найяскравіших міст Європи. Архітектура Антоні Ґауді — Sagrada Família,
+                Park Güell та Casa Batlló — вражає своєю унікальністю та неповторністю.
+                Ла Рамбла, квартал Готика і пляж Барселонета створюють неповторну атмосферу міста,
+                де кожен знайде щось для себе — від культури до нічного життя.</p>
+
+                <p>Вайб: архітектура + море + гастрономія</p>
+            </div>
+
+            <div id="valencia">
+                <h3>📍 Valencia — менше туристів, більше автентики</h3>
+                <img src="foto/Valencia.jpg" alt="Валенсія">
+                <p>Валенсія — батьківщина справжньої паельї та місто з чудовим балансом між
+                старим і новим. Дивовижне Місто Мистецтв і Наук (Ciudad de las Artes y las Ciencias)
+                є одним із найвражаючих архітектурних комплексів Іспанії.
+                Старе місто, пляжі та розслаблена атмосфера роблять Валенсію ідеальною зупинкою.</p>
+
+                <p>Вайб: автентика + архітектура + їжа</p>
+            </div>
+
+            <div id="ibiza">
+                <h3>📍 Ibiza — острів свободи і музики</h3>
+                <img src="foto/Ibiza_01.jpg" alt="Ібіца">
+                <p>Ібіца — це не просто острів, це стиль життя. Вдень — кристально чисте море,
+                білі пляжі та прогулянки старим містом Dalt Vila, внесеним до списку ЮНЕСКО.
+                Вночі — найвідоміші клуби світу та незабутня атмосфера свята.
+                Але Ібіца має і тихий бік — маленькі бухти, рибальські села і неймовірні заходи сонця. </p>
+
+                <p>Вайб: море + музика + свобода</p>
+            </div>
+        </section>
+
+        <section id="more-details">
+            <h2>✨ Чому варто обрати цей маршрут</h2>
+            <h3>Ця подорож — справжній іспанський драйв:</h3>
+            <ul>
+                <li><strong>Барселона</strong> — місто Ґауді, тапас і неймовірної енергії.</li>
+                <li><strong>Валенсія</strong> — автентична Іспанія без натовпів туристів.</li>
+                <li><strong>Ібіца</strong> — острів де можна відпочити і відірватись одночасно.</li>
+            </ul>
+        </section>
+
+        <section id="links">
+            <h2>Корисні посилання для планування подорожі</h2>
+            <ul>
+                <li><a href="https://www.barcelonaturisme.com/en/" target="_blank">🎨 Барселона — barcelonaturisme.com</a></li>
+                <li><a href="https://www.visitvalencia.com/en" target="_blank">🥘 Валенсія — visitvalencia.com</a></li>
+                <li><a href="https://www.ibiza.travel/en/" target="_blank">💃 Ібіца — ibiza.travel</a></li>
+            </ul>
+        </section>
+
+        <section id="booking-trip">
+            <h2>🏨 Забронювати готель</h2>
+            <p class="booking-sub">Вибери дати — і ми знайдемо кращі варіанти в кожному місті маршруту</p>
+            <div class="booking-trip-filters">
+                <input type="text" id="tripCheckin" placeholder="📅 Заїзд" readonly>
+                <input type="text" id="tripCheckout" placeholder="📅 Виїзд" readonly>
+                <select id="tripBudget">
+                    <option value="">Будь-який бюджет</option>
+                    <option value="0-50">до €50</option>
+                    <option value="0-100">до €100</option>
+                    <option value="0-150">до €150</option>
+                    <option value="0-200">до €200</option>
+                    <option value="200-99999">€200+</option>
+                </select>
+                <button class="booking-search-btn" onclick="searchAllCities()">Шукати →</button>
+            </div>
+            <div class="booking-cities-grid" id="tripCitiesGrid"></div>
+        </section>
+
+        <section id="slide">
+            <div class="slider-header">
+                <h2>Наші подорожі</h2>
+                <div class="slider-arrows">
+                    <button class="slider-arrow" id="sliderPrev" aria-label="Назад">&#8592;</button>
+                    <button class="slider-arrow" id="sliderNext" aria-label="Вперед">&#8594;</button>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider-track auto-scroll" id="sliderTrack"></div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+            <p class="slider-hint">Наведи щоб зупинити · або керуй стрілками</p>
+        </section>
+
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal" id="modal">
+                <button class="modal-close" onclick="closeModalBtn()">✕</button>
+                <span class="modal-emoji" id="modalEmoji"></span>
+                <h3 id="modalTitle"></h3>
+                <span class="modal-vibe" id="modalVibe"></span>
+                <p class="modal-body" id="modalBody"></p>
+                <div class="modal-links" id="modalLinks"></div>
+                <a class="modal-action" id="modalAction" href="#">Вибрати цю подорож →</a>
+            </div>
+        </div>
+        </div>
+</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TravelVibes. Всі права захищені.</p>
+    </footer>
+</body>
+</html>
