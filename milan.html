@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Мілан → Комо → Лугано</title>
+     <link rel="icon" type="image/png" href="foto/icon.png">
     <link rel="stylesheet" href="trips-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -21,7 +22,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#trips-grid">Подорожі</a></li>
                 <li><a href="index.html#about">Про нас</a></li>
                 <li><a href="index.html#contact">Контакти</a></li>
             </ul>
@@ -75,10 +76,22 @@
         </aside>
 
         <div class="trips-content-page">
+
+            <div class="trip-hero">
+            <div class="trip-hero-img" style="background-image: url('foto/milanhead.jpg')"></div>
+            <div class="trip-hero-overlay"></div>
+            <div class="trip-hero-content">
+            <span class="trip-hero-label">🇮🇹 Італія та 🇨🇭 Швейцарія</span>
+            <h1 class="trip-hero-title">Мілан → Комо → Лугано</h1>
+            <p class="trip-hero-sub">Стиль, природа та спокій між Італією і Швейцарією</p>
+            <div class="trip-hero-btns">
+            <a href="#booking-trip" class="trip-hero-btn-primary">🏨 Забронювати готель</a>
+            <a href="#trip" class="trip-hero-btn-secondary">📍 Дивитись маршрут</a>
+            </div>
+            </div>
+            </div>
     
         <section id="trip">
-            <h1>Мілан → Комо → Лугано</h1>
-            <h2>Стиль, природа та спокій між Італією і Швейцарією</h2>
 
             <div id="milan">
                 <h3>📍 Milan — мода, архітектура і сучасний ритм</h3>
@@ -87,8 +100,9 @@
                 готичною архітектурою та панорамним видом з даху.
                 Поруч знаходиться елегантна галерея Galleria Vittorio Emanuele II — символ стилю та розкоші.
                 Також варто побачити район Брера з його мистецькою атмосферою та замок Sforza Castle.
-                Мілан — це центр моди, дизайну і швидкого міського життя.
-                Вайб: сучасність + стиль + енергія великого міста</p>
+                Мілан — це центр моди, дизайну і швидкого міського життя.</p>
+
+               <p><strong>Вайб:</strong> сучасність + стиль + енергія великого міста</p>
             </div>
 
             <div id="como">
@@ -97,8 +111,9 @@
                 <p>Озеро Комо — це один із найкрасивіших регіонів Європи, де гори зустрічаються з глибокою блакитною водою.
                 Уздовж берега розташовані мальовничі міста, такі як Bellagio, Varenna та Como.
                 Тут можна побачити розкішні вілли, прогулятися на човні по озеру та насолодитися
-                спокоєм, якого не знайти у великих містах. Це місце часто називають одним із найромантичніших у світі.
-                Вайб: природа + релакс + естетика</p>
+                спокоєм, якого не знайти у великих містах. Це місце часто називають одним із найромантичніших у світі.</p>
+
+                <p></strong>Вайб:</strong> природа + релакс + естетика</p>
             </div>
 
             <div id="lugano">
@@ -107,8 +122,9 @@
                 <p>Лугано — швейцарське місто, яке має яскравий італійський вплив. Воно розташоване
                 на березі озера Lake Lugano і оточене горами.
                 Тут варто прогулятися набережною, відвідати парк Parco Ciani та піднятися на гору Monte Brè,
-                щоб побачити панораму всього регіону.
-                Вайб: спокій + природа + чиста естетика</p>
+                щоб побачити панораму всього регіону.</p>
+                
+                <p><strong>Вайб:</strong> спокій + природа + чиста естетика</p>
             </div>
         </section>
 
@@ -181,5 +197,8 @@
         </div>
 </div>
     </main>
+      <footer>
+        <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>

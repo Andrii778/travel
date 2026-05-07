@@ -28,8 +28,6 @@
   -webkit-font-smoothing: antialiased; 
 }
 
-html { scroll-behavior: smooth; }
-
 /* ===== BODY ===== */
 body {
   font-family: 'DM Sans', sans-serif;
@@ -1421,13 +1419,16 @@ footer {
 }
 
 @media (max-width: 580px) {
-  .trips-grid { grid-template-columns: 1fr; }
+  .trips-grid { grid-template-columns: 1fr; } /* 1 колонка */
+  .trip-card img { height: 200px; } /* менша висота фото */
   main { padding: 16px 14px 40px; }
   .modal { padding: 22px; }
   nav ul { gap: 14px; }
   #slide { padding: 20px 16px; }
   .booking-form { flex-direction: column; }
-  .booking-form select, .booking-form input[type="text"], .booking-search-btn { width: 100%; flex: none; }
+  .booking-form select,
+  .booking-form input[type="text"],
+  .booking-search-btn { width: 100%; flex: none; }
   .booking-cities-grid { grid-template-columns: 1fr; }
   .booking-trip-filters { flex-direction: column; }
   .hero-title { font-size: 34px; }

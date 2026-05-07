@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+     <link rel="icon" type="image/png" href="foto/icon.png">
     <title>Рим → Неаполь → Амальфі</title>
     <link rel="stylesheet" href="trips-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -10,7 +11,7 @@
     <script>
       // Міста цього маршруту — використовується в script.js
       var tripCities = [
-        { emoji: '🏛️', name: 'Рим',     booking: 'Rome', img: 'foto/roma2.avif',  desc: 'Вічне місто — Колізей, Ватикан, найкращі ristorante.', priceFrom: '€45' },
+        { emoji: '🏛️', name: 'Рим',     booking: 'Rome', img: 'foto/roma.jpg',  desc: 'Вічне місто — Колізей, Ватикан, найкращі ristorante.', priceFrom: '€45' },
         { emoji: '🍕', name: 'Неаполь', booking: 'Naples', img: 'foto/napoli.jpg', desc: 'Енергія півдня, піца і вид на Везувій.',                priceFrom: '€35' },
         { emoji: '🌊', name: 'Амальфі', booking: 'Amalfi', img: 'foto/amalfi.jpg', desc: 'Скелі, море і найкрасивіше узбережжя Італії.',          priceFrom: '€60' },
       ];
@@ -22,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#trips-grid">Подорожі</a></li>
                 <li><a href="index.html#about">Про нас</a></li>
                 <li><a href="index.html#contact">Контакти</a></li>
             </ul>
@@ -77,17 +78,30 @@
 
         <div class="trips-content-page">
 
+            <div class="trip-hero">
+            <div class="trip-hero-img" style="background-image: url('foto/panteon.jpg')"></div>
+            <div class="trip-hero-overlay"></div>
+            <div class="trip-hero-content">
+            <span class="trip-hero-label">🇮🇹 Італія</span>
+            <h1 class="trip-hero-title">Рим → Неаполь → Амальфі</h1>
+            <p class="trip-hero-sub">Історія, смак Італії та узбережжя, яке складно забути</p>
+            <div class="trip-hero-btns">
+            <a href="#booking-trip" class="trip-hero-btn-primary">🏨 Забронювати готель</a>
+            <a href="#trip" class="trip-hero-btn-secondary">📍 Дивитись маршрут</a>
+            </div>
+            </div>
+            </div>
+
         <section id="trip">
-            <h1>Рим → Неаполь → Амальфі</h1>
-            <h2>Історія, смак Італії та узбережжя, яке складно забути</h2>
 
             <div id="roma">
                 <h3>📍 Rome — серце античності та культури</h3>
                 <img src="foto/roma.jpg" alt="Рим">
                 <p>Рим — це місто, де кожен крок веде крізь тисячоліття історії. Величний Colosseum,
                 руїни Roman Forum та держава у державі — Vatican City створюють унікальну атмосферу.
-                Прогулянки вузькими вуличками, кава на площах і фонтани, як Trevi Fountain, роблять Рим ідеальним стартом подорожі.
-                Вайб: історія + архітектура + жива атмосфера міста</p>
+                Прогулянки вузькими вуличками, кава на площах і фонтани, як Trevi Fountain, роблять Рим ідеальним стартом подорожі.</p>
+                
+                <p><strong>Вайб:</strong> історія + архітектура + жива атмосфера міста</p>
             </div>
 
             <div id="napoli">
@@ -96,8 +110,9 @@
                 <p>Неаполь — це вибух кольорів, звуків і смаків. Тут народилася піца, і кожен шматочок — це вибух смаку.
                 Вуличні ринки, барвисті будинки та вид на Везувій створюють неповторну атмосферу цього міста.
                 Звідси відкривається вид на вулкан Mount Vesuvius, а поруч — легендарні руїни Pompeii.
-                Історичний центр входить до списку UNESCO і вражає своєю атмосферою.
-                Вайб: їжа + енергія + колорит</p>
+                Історичний центр входить до списку UNESCO і вражає своєю атмосферою.</p>
+
+                <p></strong>Вайб:</strong> їжа + енергія + колорит</p>
             </div>
 
             <div id="amalfi">
@@ -107,8 +122,9 @@
                 Positano — ікона узбережжя з кольоровими будинками.
                 Amalfi — історичне місто з величним собором.
                 Ravello — панорамні види та спокій.
-                Це місце для повільних прогулянок, морських краєвидів і моментів, які хочеться зберегти.
-                Вайб: море + природа + естетика</p>
+                Це місце для повільних прогулянок, морських краєвидів і моментів, які хочеться зберегти.</p>
+
+                <p></strong>Вайб:</strong> море + природа + естетика</p>
             </div>
         </section>
 
@@ -181,5 +197,8 @@
         </div>
  </div>
     </main>
+      <footer>
+        <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,7 +1,7 @@
 const trips = [
   {
     emoji: "🏛️",
-    img: "foto/roma2.avif",
+    img: "foto/roma.jpg",
     title: "Рим → Неаполь → Амальфі",
     shortDesc: "Класика, але дуже атмосферна.",
     vibe: "море · їжа · естетика",
@@ -491,4 +491,70 @@ function searchTransport() {
   }
 
   window.open(url, '_blank');
+}
+
+// ======== КОНТАКТНА ФОРМА ========
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const msg = document.getElementById('formMsg');
+    
+    // Валідація
+    const name = contactForm.querySelector('[name="name"]').value.trim();
+    const email = contactForm.querySelector('[name="email"]').value.trim();
+    const message = contactForm.querySelector('[name="message"]').value.trim();
+    
+    if (!name || !email || !message) {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(255,80,80,0.15)';
+      msg.style.border = '1px solid rgba(255,80,80,0.3)';
+      msg.style.color = '#ff8080';
+      msg.textContent = 'Будь ласка, заповни всі поля';
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(255,80,80,0.15)';
+      msg.style.border = '1px solid rgba(255,80,80,0.3)';
+      msg.style.color = '#ff8080';
+      msg.textContent = 'Введи правильний email';
+      return;
+    }
+
+    // Відправка
+    btn.textContent = 'Надсилаємо...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        msg.style.display = 'block';
+        msg.style.background = 'rgba(79,142,247,0.15)';
+        msg.style.border = '1px solid rgba(79,142,247,0.3)';
+        msg.style.color = '#82b4ff';
+        msg.textContent = 'Повідомлення відправлено! Дякуємо за звернення.';
+        contactForm.reset();
+        btn.textContent = 'Надіслати';
+        btn.disabled = false;
+      } else {
+        throw new Error();
+      }
+    } catch {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(255,80,80,0.15)';
+      msg.style.border = '1px solid rgba(255,80,80,0.3)';
+      msg.style.color = '#ff8080';
+      msg.textContent = 'Помилка відправки. Спробуй ще раз.';
+      btn.textContent = 'Надіслати';
+      btn.disabled = false;
+    }
+  });
 }

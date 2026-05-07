@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Париж → Луара → Бордо → Ніцца</title>
+     <link rel="icon" type="image/png" href="foto/icon.png">
     <link rel="stylesheet" href="trips-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -22,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#trips-grid">Подорожі</a></li>
                 <li><a href="index.html#about">Про нас</a></li>
                 <li><a href="index.html#contact">Контакти</a></li>
             </ul>
@@ -76,10 +77,22 @@
         </aside>
 
         <div class="trips-content-page">
+
+             <div class="trip-hero">
+            <div class="trip-hero-img" style="background-image: url('foto/parishead.jpg')"></div>
+            <div class="trip-hero-overlay"></div>
+            <div class="trip-hero-content">
+            <span class="trip-hero-label">🇫🇷 Франція</span>
+            <h1 class="trip-hero-title">Париж → Луара → Бордо → Ніцца</h1>
+            <p class="trip-hero-sub">Романтика, вино та краса французького півдня</p>
+            <div class="trip-hero-btns">
+            <a href="#booking-trip" class="trip-hero-btn-primary">🏨 Забронювати готель</a>
+            <a href="#trip" class="trip-hero-btn-secondary">📍 Дивитись маршрут</a>
+            </div>
+            </div>
+            </div>
     
         <section id="trip">
-            <h1>Париж → Луара → Бордо → Ніцца</h1>
-            <h2>Романтика, вино та краса французького півдня</h2>
 
             <div id="paris">
                 <h3>📍 Paris — місто світла і романтики</h3>
@@ -89,7 +102,7 @@
                 Прогулянки вздовж Сени, кава у маленьких bistro та шопінг на Champs-Élysées —
                 все це робить Париж неповторним. Місто, де хочеться залишитись назавжди.</p>
 
-                <p> Вайб: романтика + культура + гастрономія</p>
+                <p><strong>Вайб:</strong> романтика + культура + гастрономія</p>
             </div>
 
             <div id="loire">
@@ -100,7 +113,7 @@
                 розповідає свою окрему історію французьких королів.
                 Це місце ідеальне для неквапливих прогулянок і відкриття справжньої Франції.</p>
 
-                <p> Вайб: історія + природа + спокій</p>
+                <p><strong>Вайб:</strong> історія + природа + спокій</p>
             </div>
 
             <div id="bordeaux">
@@ -111,7 +124,7 @@
                 фонтаном є однією з найфотографованіших точок країни.
                 Дегустації вин у навколишніх шато — це окремий вид мистецтва.</p>
 
-                <p> Вайб: вино + елегантність + архітектура</p>
+                <p><strong>Вайб:</strong> вино + елегантність + архітектура</p>
             </div>
 
             <div id="nice">
@@ -123,7 +136,7 @@
                 Середземноморське сонце, морепродукти та розслаблена атмосфера роблять
                 Ніццу ідеальним фіналом подорожі.</p>
 
-               <p> Вайб: море + сонце + французький шарм</p>
+               <p><strong>Вайб:</strong> море + сонце + французький шарм</p>
             </div>
         </section>
 
@@ -196,5 +209,8 @@
         </div>
         </div>
     </main>
+      <footer>
+        <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>

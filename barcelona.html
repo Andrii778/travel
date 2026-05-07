@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Барселона → Валенсія → Ібіца</title>
+     <link rel="icon" type="image/png" href="foto/icon.png">
     <link rel="stylesheet" href="trips-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -21,7 +22,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#trips-grid">Подорожі</a></li>
                 <li><a href="index.html#about">Про нас</a></li>
                 <li><a href="index.html#contact">Контакти</a></li>
             </ul>
@@ -76,9 +77,21 @@
 
         <div class="trips-content-page">
 
+            <div class="trip-hero">
+            <div class="trip-hero-img" style="background-image: url('foto/valenciahead.webp')"></div>
+            <div class="trip-hero-overlay"></div>
+            <div class="trip-hero-content">
+            <span class="trip-hero-label">🇪🇸 Іспанія</span>
+            <h1 class="trip-hero-title">Барселона → Валенсія → Ібіца</h1>
+            <p class="trip-hero-sub">Іспанський драйв, архітектура і море</p>
+            <div class="trip-hero-btns">
+            <a href="#booking-trip" class="trip-hero-btn-primary">🏨 Забронювати готель</a>
+            <a href="#trip" class="trip-hero-btn-secondary">📍 Дивитись маршрут</a>
+            </div>
+            </div>
+            </div>
+
         <section id="trip">
-            <h1>Барселона → Валенсія → Ібіца</h1>
-            <h2>Іспанський драйв, архітектура і море</h2>
 
             <div id="barcelona">
                 <h3>📍 Barcelona — архітектура, море і тапас</h3>
@@ -88,7 +101,7 @@
                 Ла Рамбла, квартал Готика і пляж Барселонета створюють неповторну атмосферу міста,
                 де кожен знайде щось для себе — від культури до нічного життя.</p>
 
-                <p>Вайб: архітектура + море + гастрономія</p>
+                <p><strong>Вайб:</strong> архітектура + море + гастрономія</p>
             </div>
 
             <div id="valencia">
@@ -99,7 +112,7 @@
                 є одним із найвражаючих архітектурних комплексів Іспанії.
                 Старе місто, пляжі та розслаблена атмосфера роблять Валенсію ідеальною зупинкою.</p>
 
-                <p>Вайб: автентика + архітектура + їжа</p>
+                <p><strong>Вайб:</strong> автентика + архітектура + їжа</p>
             </div>
 
             <div id="ibiza">
@@ -110,7 +123,7 @@
                 Вночі — найвідоміші клуби світу та незабутня атмосфера свята.
                 Але Ібіца має і тихий бік — маленькі бухти, рибальські села і неймовірні заходи сонця. </p>
 
-                <p>Вайб: море + музика + свобода</p>
+                <p><strong>Вайб:</strong> море + музика + свобода</p>
             </div>
         </section>
 

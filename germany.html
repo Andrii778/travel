@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Берлін → Дрезден → Мюнхен → Альпи</title>
+     <link rel="icon" type="image/png" href="foto/icon.png">
     <link rel="stylesheet" href="trips-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -22,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#trips-grid">Подорожі</a></li>
                 <li><a href="index.html#about">Про нас</a></li>
                 <li><a href="index.html#contact">Контакти</a></li>
             </ul>
@@ -76,10 +77,22 @@
         </aside>
 
         <div class="trips-content-page">
+
+            <div class="trip-hero">
+            <div class="trip-hero-img" style="background-image: url('foto/dresdenhead.jpg')"></div>
+            <div class="trip-hero-overlay"></div>
+            <div class="trip-hero-content">
+            <span class="trip-hero-label">🇩🇪 Німеччина</span>
+            <h1 class="trip-hero-title">Берлін → Дрезден → Мюнхен → Альпи</h1>
+            <p class="trip-hero-sub">Від столиці до засніжених вершин Альп</p>
+            <div class="trip-hero-btns">
+            <a href="#booking-trip" class="trip-hero-btn-primary">🏨 Забронювати готель</a>
+            <a href="#trip" class="trip-hero-btn-secondary">📍 Дивитись маршрут</a>
+            </div>
+            </div>
+            </div>
     
         <section id="trip">
-            <h1>Берлін → Дрезден → Мюнхен → Альпи</h1>
-            <h2>Від столиці до засніжених вершин Альп</h2>
 
             <div id="berlin">
                 <h3>📍 Berlin — місто контрастів і свободи</h3>
@@ -91,7 +104,7 @@
                 Музейний острів, ринки та нескінченна кількість кафе роблять місто
                 ідеальним для дослідження.</p>
 
-                <p> Вайб: історія + мистецтво + свобода</p>
+                <p><strong>Вайб:</strong> історія + мистецтво + свобода</p>
             </div>
 
             <div id="dresden">
@@ -102,7 +115,8 @@
                 Frauenkirche, Zwinger та Дрезденська картинна галерея з Сікстинською Мадонною
                 Рафаеля зберігають скарби світового мистецтва. Місто на берегах Ельби
                 вражає своєю елегантністю.</p>
-                <p>Вайб: бароко + мистецтво + елегантність</p>
+
+                <p><strong>Вайб:</strong> бароко + мистецтво + елегантність</p>
             </div>
 
             <div id="munich">
@@ -113,7 +127,7 @@
                 і знаменитий Октоберфест. Тут знаходяться штаб-квартира BMW та чудові музеї.
                 Мюнхен — ідеальна база для поїздок в Альпи та замок Нойшванштайн.</p>
 
-                <p>Вайб: традиції + пиво + баварський дух</p>
+                <p><strong>Вайб:</strong> традиції + пиво + баварський дух</p>
             </div>
 
             <div id="alps">
@@ -124,7 +138,7 @@
                 Озеро Königssee з кришталево чистою водою та гора Zugspitze — найвища точка Німеччини.
                 Взимку — найкращі гірськолижні курорти, влітку — неймовірні хайкінг-маршрути.</p>
 
-                <p>Вайб: природа + пригоди + казка</p>
+                <p><strong>Вайб:</strong> природа + пригоди + казка</p>
             </div>
         </section>
 
@@ -197,5 +211,8 @@
         </div>
 </div>
     </main>
+      <footer>
+        <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>

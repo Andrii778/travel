@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="foto/icon.png">
     <title>Мій перший проект</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -58,11 +59,7 @@
             <span class="stat-label">задоволення</span>
         </div>
         </div>
- 
-        <div class="hero-scroll">
-        <div class="hero-scroll-line"></div>
-         scroll
-        </div>
+
         </div>
         </section>
 
@@ -259,19 +256,28 @@
 
         <section id="about">
             <h2>Про нас</h2>
-            <p>Ми - команда професіоналів, яка прагне надати найкращі подорожі нашим клієнтам.</p>
-            <p>Наша мета - забезпечити якість та задоволення кожного клієнта.</p>
+            <p>Ми створили цей сайт, щоб допомогти мандрівникам знаходити найцікавіші маршрути та відкривати нові місця
+              без зайвих труднощів. Тут зібрані ідеї подорожей, готові маршрути та короткі описи 
+              міст і локацій, які допоможуть обрати ідеальний напрямок для відпочинку.</p>
+
+            <p>Наша мета — зробити планування подорожей простішим, зручнішим і більш натхненним. 
+              Ми підбираємо маршрути так, щоб кожна поїздка поєднувала атмосферу міста, культурні пам’ятки, 
+              красиві краєвиди та справжні емоції від подорожі.</p>
+
+            <p>Незалежно від того, чи ви шукаєте романтичну поїздку, морський відпочинок, культурний тур 
+              або коротку подорож Європою — тут ви знайдете ідеї, які допоможуть зробити вашу мандрівку особливою.</p>
         </section>
 
         <section id="contact">
             <h2>Контакти</h2>
-            <form action="#">
-                <input type="text" placeholder="Ваше ім'я" required>
-                <input type="email" placeholder="Ваш email" required>
-                <textarea placeholder="Ваше повідомлення" required></textarea>
-                <button type="submit">Надіслати</button>
+            <form action="https://formspree.io/f/mpqbjwyj" method="POST" id="contactForm">
+            <input type="text" name="name" placeholder="Ваше ім'я" required>
+            <input type="email" name="email" placeholder="Ваш email" required>
+            <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
+            <div id="formMsg" style="display:none; margin-bottom:12px; padding:12px; border-radius:8px; font-size:14px;"></div>
+            <button type="submit">Надіслати</button>
             </form>
-        </section>
+        </section> 
     </main>
     <footer>
         <p>&copy; 2023 Our Travel Company. All rights reserved.</p>

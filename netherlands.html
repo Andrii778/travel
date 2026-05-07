@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Амстердам → Роттердам → Брюгге → Брюссель</title>
+     <link rel="icon" type="image/png" href="foto/icon.png">
     <link rel="stylesheet" href="trips-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -22,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="index.html#trips">Подорожі</a></li>
+                <li><a href="index.html#trips-grid">Подорожі</a></li>
                 <li><a href="index.html#about">Про нас</a></li>
                 <li><a href="index.html#contact">Контакти</a></li>
             </ul>
@@ -77,9 +78,21 @@
 
         <div class="trips-content-page">
 
+            <div class="trip-hero">
+            <div class="trip-hero-img" style="background-image: url('foto/rotterdamhead.jpg')"></div>
+            <div class="trip-hero-overlay"></div>
+            <div class="trip-hero-content">
+            <span class="trip-hero-label">🇳🇱 Нідерланди</span>
+            <h1 class="trip-hero-title">Амстердам → Роттердам → Брюгге → Брюссель</h1>
+            <p class="trip-hero-sub">Канали, архітектура і бельгійський шоколад</p>
+            <div class="trip-hero-btns">
+            <a href="#booking-trip" class="trip-hero-btn-primary">🏨 Забронювати готель</a>
+            <a href="#trip" class="trip-hero-btn-secondary">📍 Дивитись маршрут</a>
+            </div>
+            </div>
+            </div>
+
         <section id="trip">
-            <h1>Амстердам → Роттердам → Брюгге → Брюссель</h1>
-            <h2>Канали, архітектура і бельгійський шоколад</h2>
 
             <div id="amsterdam">
                 <h3>📍 Amsterdam — місто каналів і свободи</h3>
@@ -89,7 +102,7 @@
                 Квартал Йордаан з його затишними кафе і незалежними магазинами є одним із
                 найгарніших районів Європи. Місто толерантності, культури і живого духу.</p>
 
-                <p>Вайб: культура + канали + свобода</p>
+                <p><strong>Вайб:</strong> культура + канали + свобода</p>
             </div>
 
             <div id="rotterdam">
@@ -100,7 +113,7 @@
                 Кубічні будинки Cube Houses, ринок Markthal та найбільший порт Європи.
                 Це місто для тих, хто любить сучасний дизайн і нестандартні рішення.</p>
 
-                 <p>Вайб: архітектура + модернізм + енергія</p>
+                 <p><strong>Вайб:</strong> архітектура + модернізм + енергія</p>
             </div>
 
             <div id="bruges">
@@ -111,7 +124,7 @@
                 до казки. Тут виробляють найкращий бельгійський шоколад і пиво.
                 Прогулянка човном по каналах — must-do кожного відвідувача.</p>
 
-                 <p>Вайб: середньовіччя + шоколад + романтика</p>
+                 <p><strong>Вайб:</strong> середньовіччя + шоколад + романтика</p>
             </div>
 
             <div id="brussels">
@@ -195,5 +208,8 @@
         </div>
 </div>
     </main>
+      <footer>
+        <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>
