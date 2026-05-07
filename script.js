@@ -1,7 +1,7 @@
 const trips = [
   {
     emoji: "🏛️",
-    img: "foto/roma.jpg",
+    img: "foto/panteon.jpg",
     title: "Рим → Неаполь → Амальфі",
     shortDesc: "Класика, але дуже атмосферна.",
     vibe: "море · їжа · естетика",
