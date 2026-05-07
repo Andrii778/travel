@@ -1409,18 +1409,48 @@ footer {
 
 /* ===== АДАПТИВ ===== */
 @media (max-width: 900px) {
-  .trips-layout { flex-direction: column; }
-  .trips-sidebar { width: 100%; min-width: unset; position: static; border-right: none; border-bottom: 1px solid var(--border); }
-  .trips-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .booking-form { flex-wrap: wrap; }
-  .booking-form select, .booking-form input[type="text"] { flex: 1 1 calc(50% - 5px); }
-  .booking-search-btn { width: 100%; }
-  .booking-cities-grid { grid-template-columns: repeat(2, 1fr); }
+  .trips-layout { 
+    flex-direction: column; 
+  }
+
+  .trips-sidebar { 
+    width: 100%; 
+    min-width: unset; 
+    position: static; 
+    border-right: none; 
+    border-bottom: 1px solid var(--border); 
+  }
+
+  .trips-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .booking-form { 
+    flex-wrap: wrap; 
+  }
+
+  .booking-form select, .booking-form input[type="text"] { 
+    flex: 1 1 calc(50% - 5px); 
+  }
+
+  .booking-search-btn { 
+    width: 100%; 
+  }
+
+  .booking-cities-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
 }
 
 @media (max-width: 580px) {
-  .trips-grid { grid-template-columns: 1fr; } /* 1 колонка */
-  .trip-card img { height: 200px; } /* менша висота фото */
+  .trips-grid { 
+    grid-template-columns: 1fr; }
+  .trip-card img { 
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
   main { padding: 16px 14px 40px; }
   .modal { padding: 22px; }
   nav ul { gap: 14px; }

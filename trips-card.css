@@ -23,7 +23,12 @@
 
 /* ===== RESET ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  min-height: 100%;
+  background: linear-gradient(160deg, #1a1a1a 0%, #2d1b4e 50%, #1a1a1a 100%);
+  background-attachment: fixed;
+}
 
 /* ===== BODY — градієнт як на головній ===== */
 body {
@@ -82,6 +87,8 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px 24px 60px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== ЛЕЙАУТ З SIDEBAR ===== */
@@ -287,6 +294,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0;
+  max-width: calc(100% - 50px);
 }
 
 /* ===== СЕКЦІЇ ===== */
@@ -969,12 +977,16 @@ footer {
   border-radius: 0 16px 0 0;
 }
 
-.trip-hero-img {
+.trip-hero-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   transition: transform 6s ease;
+}
+
+.trip-hero:hover .trip-hero-bg {
+  transform: scale(1.04);
 }
 
 .trip-hero:hover .trip-hero-img {
@@ -1073,15 +1085,12 @@ footer {
   color: white;
 }
 
-/* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
   main { padding: 16px 14px 40px; }
   section { padding: 20px; }
 
   .trips-layout { flex-direction: column; }
-
   .trips-sidebar { display: none; }
-
   .trips-content-page { width: 100%; }
 
   .trips-content-page section {
@@ -1099,7 +1108,20 @@ footer {
   }
 
   #trip h1 { font-size: 22px; }
-  #trip img { height: 180px; }
+
+  #trip img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .trip-hero { height: 280px; border-radius: 0; }
+  .trip-hero-content { bottom: 20px; left: 20px; right: 20px; }
+  .trip-hero-title { font-size: 22px; }
+  .trip-hero-sub { display: none; }
+  .trip-hero-btns { flex-direction: column; gap: 8px; }
+  .trip-hero-btn-primary,
+  .trip-hero-btn-secondary { text-align: center; padding: 10px; }
 
   .booking-cities-grid { grid-template-columns: 1fr; }
   .booking-trip-filters { flex-direction: column; }
@@ -1108,9 +1130,4 @@ footer {
   .booking-search-btn { width: 100%; flex: none; }
 
   .modal { padding: 22px; }
-
-  .trip-hero { height: 280px; border-radius: 0; }
-  .trip-hero-content { bottom: 20px; left: 20px; right: 20px; }
-  .trip-hero-title { font-size: 22px; }
-  .trip-hero-btns { flex-direction: column; gap: 8px; }
 }

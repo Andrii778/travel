@@ -18,7 +18,9 @@
     </script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
+   <canvas id="bgMap" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
     <header>
         <nav>
             <ul>
@@ -79,7 +81,7 @@
         <div class="trips-content-page">
 
             <div class="trip-hero">
-            <div class="trip-hero-img" style="background-image: url('foto/panteon.jpg')"></div>
+            <div class="trip-hero-bg" style="background-image: url('foto/panteon.jpg')"></div>
             <div class="trip-hero-overlay"></div>
             <div class="trip-hero-content">
             <span class="trip-hero-label">🇮🇹 Італія</span>
@@ -200,5 +202,16 @@
       <footer>
         <p>&copy; 2023 Our Travel Company. All rights reserved.</p>
     </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  initHeroMap('bgMap', [
+    { name: 'Рим',     lat: 42.5, lon: 12.5 },
+    { name: 'Неаполь', lat: 40.2, lon: 14.8 },
+    { name: 'Амальфі', lat: 38.8, lon: 15.5 },
+  ]);
+});
+</script>
+
 </body>
 </html>

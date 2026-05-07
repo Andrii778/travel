@@ -51,34 +51,34 @@ const trips = [
     ],
     href: "france.html",
   },
- {
-  emoji: "🚲",
-  img: "foto/amsterdam2.webp",
-  title: "Амстердам → Роттердам → Брюгге → Брюссель",
-  shortDesc: "Канали, архітектура і бельгійський шоколад.",
-  vibe: "місто · канали · архітектура",
-  fullDesc: "Нідерланди та Бельгія у чотирьох актах. Амстердам — канали і найкращі музеї. Роттердам — сучасна архітектура. Брюгге — середньовічна казка. Брюссель — серце Європи з вафлями і пивом.",
-  links: [
-    { text: "🚲 Амстердам — iamsterdam.com", href: "https://www.iamsterdam.com/en" },
-    { text: "🍺 Брюгге — visitbruges.be", href: "https://www.visitbruges.be/en" },
-    { text: "🧇 Брюссель — visit.brussels", href: "https://visit.brussels/en" },
-  ],
-  href: "netherlands.html",
-},
-{
-  emoji: "🏰",
-  img: "foto/dresden2.jpg",
-  title: "Берлін → Дрезден → Мюнхен → Альпи",
-  shortDesc: "Від столиці до засніжених вершин Альп.",
-  vibe: "міста · природа · Альпи",
-  fullDesc: "Германія від А до Я. Берлін — історія і свобода. Дрезден — барокова краса. Мюнхен — пиво і баварські традиції. Альпи — замок Нойшванштайн і найвища вершина країни.",
-  links: [
-    { text: "🏰 Берлін — visitberlin.de", href: "https://www.visitberlin.de/en" },
-    { text: "🍺 Мюнхен — muenchen.de", href: "https://www.muenchen.de/en" },
-    { text: "⛰️ Баварські Альпи — gapa.de", href: "https://www.gapa.de/en/" },
-  ],
-  href: "germany.html",
-},
+  {
+    emoji: "🚲",
+    img: "foto/amsterdam2.webp",
+    title: "Амстердам → Роттердам → Брюгге → Брюссель",
+    shortDesc: "Канали, архітектура і бельгійський шоколад.",
+    vibe: "місто · канали · архітектура",
+    fullDesc: "Нідерланди та Бельгія у чотирьох актах. Амстердам — канали і найкращі музеї. Роттердам — сучасна архітектура. Брюгге — середньовічна казка. Брюссель — серце Європи з вафлями і пивом.",
+    links: [
+      { text: "🚲 Амстердам — iamsterdam.com", href: "https://www.iamsterdam.com/en" },
+      { text: "🍺 Брюгге — visitbruges.be", href: "https://www.visitbruges.be/en" },
+      { text: "🧇 Брюссель — visit.brussels", href: "https://visit.brussels/en" },
+    ],
+    href: "netherlands.html",
+  },
+  {
+    emoji: "🏰",
+    img: "foto/dresden2.jpg",
+    title: "Берлін → Дрезден → Мюнхен → Альпи",
+    shortDesc: "Від столиці до засніжених вершин Альп.",
+    vibe: "міста · природа · Альпи",
+    fullDesc: "Германія від А до Я. Берлін — історія і свобода. Дрезден — барокова краса. Мюнхен — пиво і баварські традиції. Альпи — замок Нойшванштайн і найвища вершина країни.",
+    links: [
+      { text: "🏰 Берлін — visitberlin.de", href: "https://www.visitberlin.de/en" },
+      { text: "🍺 Мюнхен — muenchen.de", href: "https://www.muenchen.de/en" },
+      { text: "⛰️ Баварські Альпи — gapa.de", href: "https://www.gapa.de/en/" },
+    ],
+    href: "germany.html",
+  },
 ];
 
 // ======== СЛАЙДЕР ========
@@ -188,11 +188,10 @@ document.addEventListener('keydown', e => {
 
 document.addEventListener('DOMContentLoaded', buildSlider);
 
-// ======== ФІЛЬТРИ + КАЛЕНДАР SIDEBAR (тільки index.html) ========
+// ======== ФІЛЬТРИ SIDEBAR ========
 (function() {
   let activeVibe = 'all';
   let activeCountry = null;
-  let selectedDate = null;
 
   function applyFilters() {
     const cards = document.querySelectorAll('#tripsGrid .trip-card');
@@ -233,7 +232,6 @@ document.addEventListener('DOMContentLoaded', buildSlider);
     });
   });
 
-  // Календар — тільки якщо є на сторінці
   const calTrigger = document.getElementById('calTrigger');
   if (!calTrigger) return;
 
@@ -242,6 +240,7 @@ document.addEventListener('DOMContentLoaded', buildSlider);
   let calMonth = today.getMonth();
   const MONTHS = ['Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень'];
   const DAYS = ['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
+  let selectedDate = null;
 
   function renderCal() {
     document.getElementById('calMonthLabel').textContent = MONTHS[calMonth] + ' ' + calYear;
@@ -289,11 +288,9 @@ document.addEventListener('DOMContentLoaded', buildSlider);
   document.getElementById('calPrev').addEventListener('click', () => {
     calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCal();
   });
-
   document.getElementById('calNext').addEventListener('click', () => {
     calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCal();
   });
-
   document.getElementById('calClear').addEventListener('click', () => {
     selectedDate = null;
     document.getElementById('calLabel').textContent = 'Вибрати дату';
@@ -309,17 +306,11 @@ document.addEventListener('DOMContentLoaded', buildSlider);
   if (!checkinEl) return;
 
   const checkoutPicker = flatpickr('#bookingCheckout', {
-    locale: 'uk',
-    minDate: new Date(Date.now() + 86400000),
-    dateFormat: 'd.m.Y',
-    disableMobile: true,
+    locale: 'uk', minDate: new Date(Date.now() + 86400000), dateFormat: 'd.m.Y', disableMobile: true,
   });
 
   flatpickr('#bookingCheckin', {
-    locale: 'uk',
-    minDate: 'today',
-    dateFormat: 'd.m.Y',
-    disableMobile: true,
+    locale: 'uk', minDate: 'today', dateFormat: 'd.m.Y', disableMobile: true,
     onChange: function(selectedDates) {
       const next = new Date(selectedDates[0]);
       next.setDate(next.getDate() + 1);
@@ -342,24 +333,21 @@ function buildBookingUrl(city, checkin, checkout, budget) {
   let url = 'https://www.booking.com/searchresults.html?aid=' + AID + '&ss=' + encodeURIComponent(city) + '&lang=uk';
   if (checkin)  url += '&checkin='  + toBookingDate(checkin);
   if (checkout) url += '&checkout=' + toBookingDate(checkout);
-  if (budget) {
-    const p = budget.split('-');
-    url += '&nflt=price%3DEUR-' + p[0] + '-' + p[1] + '-1';
-  }
+  if (budget) { const p = budget.split('-'); url += '&nflt=price%3DEUR-' + p[0] + '-' + p[1] + '-1'; }
   return url;
 }
 
 function searchHotels() {
-  const city     = document.getElementById('bookingCity')?.value;
-  const checkin  = document.getElementById('bookingCheckin')?.value;
+  const city = document.getElementById('bookingCity')?.value;
+  const checkin = document.getElementById('bookingCheckin')?.value;
   const checkout = document.getElementById('bookingCheckout')?.value;
-  const budget   = document.getElementById('bookingBudget')?.value;
+  const budget = document.getElementById('bookingBudget')?.value;
   if (!checkin || !checkout) { alert('Будь ласка, вкажи дати заїзду та виїзду'); return; }
   window.open(buildBookingUrl(city, checkin, checkout, budget), '_blank');
 }
 
 function quickSearch(city) {
-  const checkin  = document.getElementById('bookingCheckin')?.value;
+  const checkin = document.getElementById('bookingCheckin')?.value;
   const checkout = document.getElementById('bookingCheckout')?.value;
   window.open(buildBookingUrl(city, checkin, checkout, ''), '_blank');
 }
@@ -370,18 +358,12 @@ function quickSearch(city) {
   if (!checkinEl) return;
 
   const checkoutTripPicker = flatpickr('#tripCheckout', {
-    locale: 'uk',
-    minDate: new Date(Date.now() + 86400000),
-    dateFormat: 'd.m.Y',
-    disableMobile: true,
+    locale: 'uk', minDate: new Date(Date.now() + 86400000), dateFormat: 'd.m.Y', disableMobile: true,
     onChange: function() { renderTripCities(); }
   });
 
   flatpickr('#tripCheckin', {
-    locale: 'uk',
-    minDate: 'today',
-    dateFormat: 'd.m.Y',
-    disableMobile: true,
+    locale: 'uk', minDate: 'today', dateFormat: 'd.m.Y', disableMobile: true,
     onChange: function(selectedDates) {
       const next = new Date(selectedDates[0]);
       next.setDate(next.getDate() + 1);
@@ -399,17 +381,14 @@ function quickSearch(city) {
 if (typeof tripCities === 'undefined') { var tripCities = []; }
 
 function buildTripUrl(bookingCity) {
-  const AID      = 'YOUR_AFFILIATE_ID';
+  const AID = 'YOUR_AFFILIATE_ID';
   const checkin  = document.getElementById('tripCheckin')?.value  || '';
   const checkout = document.getElementById('tripCheckout')?.value || '';
   const budget   = document.getElementById('tripBudget')?.value   || '';
   let url = 'https://www.booking.com/searchresults.html?aid=' + AID + '&ss=' + encodeURIComponent(bookingCity) + '&lang=uk';
   if (checkin)  url += '&checkin='  + toBookingDate(checkin);
   if (checkout) url += '&checkout=' + toBookingDate(checkout);
-  if (budget) {
-    const p = budget.split('-');
-    url += '&nflt=price%3DEUR-' + p[0] + '-' + p[1] + '-1';
-  }
+  if (budget) { const p = budget.split('-'); url += '&nflt=price%3DEUR-' + p[0] + '-' + p[1] + '-1'; }
   return url;
 }
 
@@ -438,58 +417,45 @@ function searchAllCities() {
 document.addEventListener('DOMContentLoaded', renderTripCities);
 
 // ======== ТРАНСПОРТ ========
-let activeTransport = 'bus';
+var activeTransport = 'bus';
 
-document.querySelectorAll('.transport-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.transport-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeTransport = btn.dataset.transport;
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.transport-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.transport-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeTransport = btn.dataset.transport;
+      var hint = document.getElementById('transportHint');
+      if (hint) hint.textContent = '';
+    });
   });
 });
 
 function searchTransport() {
-  const fromEl = document.getElementById('transportFrom');
-  const toEl   = document.getElementById('transportTo');
-  const hint   = document.getElementById('transportHint');
-
+  var fromEl = document.getElementById('transportFrom');
+  var toEl   = document.getElementById('transportTo');
+  var hint   = document.getElementById('transportHint');
   if (!fromEl || !toEl) return;
-
-  const from = fromEl.value.trim();
-  const to   = toEl.value.trim();
-
+  var from = fromEl.value.trim();
+  var to   = toEl.value.trim();
   if (!from || !to) {
-    if (hint) {
-      hint.textContent = '⚠️ Вкажи обидва міста';
-      hint.style.color = '#ff6b6b';
-    }
+    if (hint) { hint.textContent = 'Вкажи обидва міста'; hint.style.color = '#ff6b6b'; }
     return;
   }
-
-  // Скидаємо стиль підказки
-  if (hint) {
-    hint.style.color = 'var(--accent-text)';
-  }
-
-  let url = '';
-
+  if (hint) hint.style.color = 'var(--accent-text)';
+  var url = '';
   if (activeTransport === 'bus') {
-  url = 'https://www.rome2rio.com/s/' +
-        encodeURIComponent(from) + '/' +
-        encodeURIComponent(to);
-  if (hint) hint.textContent = '';
-}
-
+    url = 'https://www.rome2rio.com/s/' + encodeURIComponent(from) + '/' + encodeURIComponent(to);
+    if (hint) hint.textContent = '';
+  }
   if (activeTransport === 'plane') {
     url = 'https://www.skyscanner.net';
-    if (hint) hint.textContent = '\u2708\uFE0F Введи ' + from + ' - ' + to + ' на сайті Skyscanner';
+    if (hint) hint.textContent = 'Введи ' + from + ' - ' + to + ' на сайті Skyscanner';
   }
-
   if (activeTransport === 'train') {
     url = 'https://www.thetrainline.com';
-    if (hint) hint.textContent = '\uD83D\uDE82 Введи ' + from + ' - ' + to + ' на сайті Trainline';
+    if (hint) hint.textContent = 'Введи ' + from + ' - ' + to + ' на сайті Trainline';
   }
-
   window.open(url, '_blank');
 }
 
@@ -500,61 +466,168 @@ if (contactForm) {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
     const msg = document.getElementById('formMsg');
-    
-    // Валідація
-    const name = contactForm.querySelector('[name="name"]').value.trim();
-    const email = contactForm.querySelector('[name="email"]').value.trim();
+    const name    = contactForm.querySelector('[name="name"]').value.trim();
+    const email   = contactForm.querySelector('[name="email"]').value.trim();
     const message = contactForm.querySelector('[name="message"]').value.trim();
-    
     if (!name || !email || !message) {
-      msg.style.display = 'block';
-      msg.style.background = 'rgba(255,80,80,0.15)';
-      msg.style.border = '1px solid rgba(255,80,80,0.3)';
-      msg.style.color = '#ff8080';
-      msg.textContent = 'Будь ласка, заповни всі поля';
-      return;
+      msg.style.display = 'block'; msg.style.background = 'rgba(255,80,80,0.15)';
+      msg.style.border = '1px solid rgba(255,80,80,0.3)'; msg.style.color = '#ff8080';
+      msg.textContent = 'Будь ласка, заповни всі поля'; return;
     }
-
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      msg.style.display = 'block';
-      msg.style.background = 'rgba(255,80,80,0.15)';
-      msg.style.border = '1px solid rgba(255,80,80,0.3)';
-      msg.style.color = '#ff8080';
-      msg.textContent = 'Введи правильний email';
-      return;
+      msg.style.display = 'block'; msg.style.background = 'rgba(255,80,80,0.15)';
+      msg.style.border = '1px solid rgba(255,80,80,0.3)'; msg.style.color = '#ff8080';
+      msg.textContent = 'Введи правильний email'; return;
     }
-
-    // Відправка
-    btn.textContent = 'Надсилаємо...';
-    btn.disabled = true;
-
+    btn.textContent = 'Надсилаємо...'; btn.disabled = true;
     try {
       const res = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
+        method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' }
       });
-
       if (res.ok) {
-        msg.style.display = 'block';
-        msg.style.background = 'rgba(79,142,247,0.15)';
-        msg.style.border = '1px solid rgba(79,142,247,0.3)';
-        msg.style.color = '#82b4ff';
+        msg.style.display = 'block'; msg.style.background = 'rgba(79,142,247,0.15)';
+        msg.style.border = '1px solid rgba(79,142,247,0.3)'; msg.style.color = '#82b4ff';
         msg.textContent = 'Повідомлення відправлено! Дякуємо за звернення.';
-        contactForm.reset();
-        btn.textContent = 'Надіслати';
-        btn.disabled = false;
-      } else {
-        throw new Error();
-      }
+        contactForm.reset(); btn.textContent = 'Надіслати'; btn.disabled = false;
+      } else { throw new Error(); }
     } catch {
-      msg.style.display = 'block';
-      msg.style.background = 'rgba(255,80,80,0.15)';
-      msg.style.border = '1px solid rgba(255,80,80,0.3)';
-      msg.style.color = '#ff8080';
+      msg.style.display = 'block'; msg.style.background = 'rgba(255,80,80,0.15)';
+      msg.style.border = '1px solid rgba(255,80,80,0.3)'; msg.style.color = '#ff8080';
       msg.textContent = 'Помилка відправки. Спробуй ще раз.';
-      btn.textContent = 'Надіслати';
-      btn.disabled = false;
+      btn.textContent = 'Надіслати'; btn.disabled = false;
     }
   });
 }
+
+// ======== АНІМОВАНА КАРТА ========
+function initHeroMap(canvasId, points) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var lons    = points.map(function(p) { return p.lon; });
+  var lats    = points.map(function(p) { return p.lat; });
+  var dMinLon = Math.min.apply(null, lons) - 5;
+  var dMaxLon = Math.max.apply(null, lons) + 5;
+  var dMinLat = Math.min.apply(null, lats) - 5;
+  var dMaxLat = Math.max.apply(null, lats) + 5;
+
+  function project(lat, lon, w, h) {
+    var x = ((lon - dMinLon) / (dMaxLon - dMinLon)) * (w * 0.44) + (w * 0.56);
+    var y = ((dMaxLat - lat) / (dMaxLat - dMinLat)) * (h * 0.85) + (h * 0.075);
+    return { x: x, y: y };
+  }
+
+  var dots = [];
+  for (var dlat = dMinLat; dlat <= dMaxLat; dlat += 1.5) {
+    for (var dlon = dMinLon; dlon <= dMaxLon; dlon += 2) {
+      dots.push({
+        lat: dlat, lon: dlon,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.3 + Math.random() * 0.4
+      });
+    }
+  }
+
+  var t        = 0;
+  var pulse    = 0;
+  var lastTime = 0;
+
+  var isVisible = true;
+  var observer  = new IntersectionObserver(function(entries) {
+    isVisible = entries[0].isIntersecting;
+  });
+  observer.observe(canvas);
+
+  function draw(timestamp) {
+    if (timestamp - lastTime < 33) { requestAnimationFrame(draw); return; }
+    if (document.hidden || !isVisible) { requestAnimationFrame(draw); return; }
+    lastTime = timestamp;
+
+    var w = canvas.width, h = canvas.height;
+    if (!w || !h) { requestAnimationFrame(draw); return; }
+    var ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, w, h);
+
+    // Плавний градієнт справа
+    var grad = ctx.createLinearGradient(w * 0.45, 0, w, 0);
+    grad.addColorStop(0,   'rgba(20,10,50,0)');
+    grad.addColorStop(0.2, 'rgba(20,10,50,0.25)');
+    grad.addColorStop(1,   'rgba(10,8,30,0.45)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Сітка
+    for (var glat = Math.ceil(dMinLat); glat <= dMaxLat; glat += 2) {
+      var gp1 = project(glat, dMinLon, w, h);
+      var gp2 = project(glat, dMaxLon, w, h);
+      ctx.beginPath(); ctx.moveTo(gp1.x, gp1.y); ctx.lineTo(gp2.x, gp2.y);
+      ctx.strokeStyle = 'rgba(79,142,247,0.08)'; ctx.lineWidth = 0.5; ctx.stroke();
+    }
+    for (var glon = Math.ceil(dMinLon); glon <= dMaxLon; glon += 2) {
+      var gp3 = project(dMaxLat, glon, w, h);
+      var gp4 = project(dMinLat, glon, w, h);
+      ctx.beginPath(); ctx.moveTo(gp3.x, gp3.y); ctx.lineTo(gp4.x, gp4.y);
+      ctx.strokeStyle = 'rgba(79,142,247,0.08)'; ctx.lineWidth = 0.5; ctx.stroke();
+    }
+
+    // Фонові точки
+    dots.forEach(function(d) {
+      var p = project(d.lat, d.lon, w, h);
+      var alpha = 0.1 + 0.1 * Math.sin(t * d.speed + d.phase);
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(130,180,255,' + alpha + ')'; ctx.fill();
+    });
+
+    // Лінії маршруту
+    var projected = points.map(function(pt) { return project(pt.lat, pt.lon, w, h); });
+    for (var i = 0; i < projected.length - 1; i++) {
+      var a = projected[i], b = projected[i + 1];
+      var cx = (a.x + b.x) / 2, cy = Math.min(a.y, b.y) - 40;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(cx, cy, b.x, b.y);
+      ctx.strokeStyle = 'rgba(79,142,247,0.65)'; ctx.lineWidth = 2;
+      ctx.setLineDash([6, 4]); ctx.stroke(); ctx.setLineDash([]);
+    }
+
+    // Точки міст
+    projected.forEach(function(p, i) {
+      var pr = (pulse + i * 25) % 100 / 100;
+      var pr2 = pr * 28;
+      ctx.beginPath(); ctx.arc(p.x, p.y, pr2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(79,142,247,' + (0.12 * (1 - pr)) + ')'; ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, 11, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(79,142,247,0.2)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = '#82b4ff'; ctx.fill();
+      ctx.font = '500 13px DM Sans, sans-serif';
+      ctx.fillStyle = 'rgba(240,240,240,0.95)';
+      ctx.textAlign = 'center';
+      ctx.fillText(points[i].name, p.x, p.y - 18);
+    });
+
+    t += 0.02; pulse += 0.5;
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+}
+
+// ======== ФОНОВИЙ CANVAS — index.html ========
+document.addEventListener('DOMContentLoaded', function() {
+  if (!document.getElementById('bgMap')) return;
+  initHeroMap('bgMap', [
+    { name: 'Рим',       lat: 41.9, lon: 12.5 },
+    { name: 'Мілан',     lat: 45.5, lon: 9.2  },
+    { name: 'Барселона', lat: 41.4, lon: 2.2  },
+    { name: 'Париж',     lat: 48.8, lon: 2.3  },
+    { name: 'Амстердам', lat: 52.4, lon: 4.9  },
+    { name: 'Берлін',    lat: 52.5, lon: 13.4 },
+  ]);
+});
